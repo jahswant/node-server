@@ -18,6 +18,10 @@ app.use(json());
 
 //Programmation des routes.
 
+app.get('/', (req, res) => {
+    res.send('Hello World !')
+  })
+
 //Demarrage du serveur
 app.listen(process.env.PORT);
 console.log("Serveur Demarre");
