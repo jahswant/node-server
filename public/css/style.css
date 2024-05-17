@@ -1,26 +1,79 @@
-html{  
+/* Définition du modèle de boîte pour tout le document */
+html {
     box-sizing: border-box;
 }
 
-
-*, *::before, *::after{
+/* Inhérit le modèle de boîte pour tous les éléments, y compris les pseudo-éléments */
+*, *::before, *::after {
     box-sizing: inherit;
 }
 
+/* Réinitialisation des marges et définition de la hauteur minimale du corps */
 body {
+    min-height: 100vh;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-header,footer{
+/* Style pour le contenu principal avec une largeur maximale et centrage horizontal */
+main {
+    flex: 1;
+    max-width: 25rem;
+    margin: 0 auto;
+}
+
+/* Style pour les en-têtes et pieds de page avec un affichage en ligne centré et une couleur de fond */
+header, footer {
     display: flex;
     justify-content: center;
     background-color: teal;
 }
 
-h1{
+/* Réinitialisation de la marge pour les titres */
+h1 {
     margin: 0;
 }
 
-footer{
+/* Style pour les formulaires avec un affichage en ligne et une marge */
+form {
+    display: flex;
+    margin: 1rem;
+}
+
+/* Style pour les champs de texte avec une extension flexible et un rembourrage */
+input[type=text] {
+    flex: 1;
+    padding: .5rem;
+}
+
+/* Style pour les listes avec un affichage en colonne, un espacement et une réinitialisation de la marge et du rembourrage */
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour les éléments de liste avec un affichage en ligne et un espacement entre les éléments */
+li {
+    display: flex;
+    padding: 0;
+    gap: 1rem;
+}
+
+/* Style pour les paragraphes suivant une case cochée avec un texte barré */
+input[type=checkbox]:checked + p {
+    text-decoration: line-through;
+}
+
+/* Réinitialisation de la marge pour les paragraphes */
+p {
+    margin: 0;
+}
+
+/* Style pour les pieds de page avec un rembourrage */
+footer {
     padding: 1rem;
 }
