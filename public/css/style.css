@@ -1,0 +1,26 @@
+html{  
+    box-sizing: border-box;
+}
+
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+header,footer{
+    display: flex;
+    justify-content: center;
+    background-color: teal;
+}
+
+h1{
+    margin: 0;
+}
+
+footer{
+    padding: 1rem;
+}
