@@ -20,7 +20,7 @@ app.use(json());
 
 app.get('/', (req, res) => {
     res.send('Hello World !')
-  })
+  });
 
 //Demarrage du serveur
 app.listen(process.env.PORT);
