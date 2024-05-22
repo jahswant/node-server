@@ -20,19 +20,20 @@ app.use(express.static("public"));
 
 //Programmation des routes.
 
-app.get('/todos', (request, response) => {
+app.get('/api/todos', (request, response) => {
     const todos = getTodos();
     response.status(200).json(todos);
   });
 
 
-app.post("/todo",(request,response)=>{
+app.post("/api/todo",(request,response)=>{
     const texte = request.body.texte;
-    addTodo(texte);
-    response.status(201).end();
+    const index = addTodo(texte);
+
+    response.status(201).json({index:index});
 });
 
-app.patch("/todo",(request,response)=>{
+app.patch("/api/todo",(request,response)=>{
 const index = request.body.index;
    CocherTodo(index);
    response.status(200).end();
