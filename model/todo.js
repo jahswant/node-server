@@ -1,22 +1,5 @@
 //Liste des ToDos
-const todos = [
-    {
-        "texte" : "Finir le laboratoire 1",
-        "estFait" : false
-      },
-      {
-        "texte" : "Finir le laboratoire 2",
-        "estFait" : false
-      },
-      {
-        "texte" : "Finir le laboratoire 3",
-        "estFait" : false
-      },
-      {
-        "texte" : "Finir le laboratoire 4",
-        "estFait" : true
-      }
-];
+const todos = [];
 
 export function getTodos() {
     return todos;

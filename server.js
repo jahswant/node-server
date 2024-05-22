@@ -1,51 +1,46 @@
-//Chargement du fichier de configuration
-import "dotenv/config"
+// Loading configuration file
+import "dotenv/config";
 
-//Importations
-import express, {json} from "express"
-import helmet from "helmet"
-import compression from "compression"
-import cors from "cors"
-import {addTodo,getTodos,CocherTodo} from "./model/todo.js"
+// Imports
+import express, { json } from "express";
+import helmet from "helmet";
+import compression from "compression";
+import cors from "cors";
+import { addTodo, getTodos, CocherTodo } from "./model/todo.js";
 
-//Creation du serveur web
+// Creating the web server
 const app = express();
 
-//Ajout des middleware
-app.use(helmet());
-app.use(compression());
-app.use(cors());
-app.use(json());
-app.use(express.static("public"));
+// Adding middleware
+app.use(helmet()); // Enhances security headers
+app.use(compression()); // Compresses responses
+app.use(cors()); // Enables Cross-Origin Resource Sharing (CORS)
+app.use(json()); // Parses incoming JSON payloads
+app.use(express.static("public")); // Serves static files from the "public" directory
 
-//Programmation des routes.
+// Defining routes
 
+// Endpoint to get all todos
 app.get('/api/todos', (request, response) => {
     const todos = getTodos();
     response.status(200).json(todos);
-  });
+});
 
-
-app.post("/api/todo",(request,response)=>{
+// Endpoint to add a new todo
+app.post("/api/todo", (request, response) => {
     const texte = request.body.texte;
     const index = addTodo(texte);
-
-    response.status(201).json({index:index});
+    response.status(201).json({ index: index });
 });
 
-app.patch("/api/todo",(request,response)=>{
-const index = request.body.index;
-   CocherTodo(index);
-   response.status(200).end();
+// Endpoint to toggle the completion status of a todo
+app.patch("/api/todo", (request, response) => {
+    const index = request.body.index;
+    CocherTodo(index);
+    response.status(200).end();
 });
 
-
-
-
-//Demarrage du serveur
-app.listen(process.env.PORT);
-console.log("Serveur Demarré");
-console.log("http://localhost:" + process.env.PORT);
-
-
-
+// Starting the server
+app.listen(process.env.PORT); // Listens on the port specified in the environment variable
+console.log("Server started");
+console.log("http://localhost:" + process.env.PORT); // Logs the server URL

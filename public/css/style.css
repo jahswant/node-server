@@ -1,14 +1,14 @@
-/* Définition du modèle de boîte pour tout le document */
+/* Box model definition for the entire document */
 html {
     box-sizing: border-box;
 }
 
-/* Inhérit le modèle de boîte pour tous les éléments, y compris les pseudo-éléments */
+/* Inherit box model for all elements, including pseudo-elements */
 *, *::before, *::after {
     box-sizing: inherit;
 }
 
-/* Réinitialisation des marges et définition de la hauteur minimale du corps */
+/* Reset margins and set minimum body height */
 body {
     min-height: 100vh;
     margin: 0;
@@ -16,38 +16,38 @@ body {
     flex-direction: column;
 }
 
-/* Style pour le contenu principal avec une largeur maximale et centrage horizontal */
+/* Style for main content with maximum width and horizontal centering */
 main {
     flex: 1;
     max-width: 25rem;
     margin: 0 auto;
 }
 
-/* Style pour les en-têtes et pieds de page avec un affichage en ligne centré et une couleur de fond */
+/* Style for headers and footers with centered inline display and background color */
 header, footer {
     display: flex;
     justify-content: center;
     background-color: teal;
 }
 
-/* Réinitialisation de la marge pour les titres */
+/* Reset margin for headings */
 h1 {
     margin: 0;
 }
 
-/* Style pour les formulaires avec un affichage en ligne et une marge */
+/* Style for forms with inline display and margin */
 form {
     display: flex;
     margin: 1rem;
 }
 
-/* Style pour les champs de texte avec une extension flexible et un rembourrage */
+/* Style for text fields with flexible width and padding */
 input[type=text] {
     flex: 1;
     padding: .5rem;
 }
 
-/* Style pour les listes avec un affichage en colonne, un espacement et une réinitialisation de la marge et du rembourrage */
+/* Style for lists with column display, spacing, and reset margin and padding */
 ul {
     display: flex;
     flex-direction: column;
@@ -56,24 +56,24 @@ ul {
     padding: 0;
 }
 
-/* Style pour les éléments de liste avec un affichage en ligne et un espacement entre les éléments */
+/* Style for list items with inline display and spacing between items */
 li {
     display: flex;
     padding: 0;
     gap: 1rem;
 }
 
-/* Style pour les paragraphes suivant une case cochée avec un texte barré */
+/* Style for paragraphs following a checked checkbox with strikethrough text */
 input[type=checkbox]:checked + p {
     text-decoration: line-through;
 }
 
-/* Réinitialisation de la marge pour les paragraphes */
+/* Reset margin for paragraphs */
 p {
     margin: 0;
 }
 
-/* Style pour les pieds de page avec un rembourrage */
+/* Style for footers with padding */
 footer {
     padding: 1rem;
 }
