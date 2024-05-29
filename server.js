@@ -8,6 +8,7 @@ import compression from "compression";
 import cors from "cors";
 import { addTodo, getTodos, CocherTodo } from "./model/todo.js";
 
+
 // Creating the web server
 const app = express();
 
@@ -21,22 +22,22 @@ app.use(express.static("public")); // Serves static files from the "public" dire
 // Defining routes
 
 // Endpoint to get all todos
-app.get('/api/todos', (request, response) => {
-    const todos = getTodos();
+app.get('/api/todos', async (request, response) => {
+    const todos = await getTodos();
     response.status(200).json(todos);
 });
 
 // Endpoint to add a new todo
-app.post("/api/todo", (request, response) => {
+app.post("/api/todo", async (request, response) => {
     const texte = request.body.texte;
-    const index = addTodo(texte);
+    const index = await addTodo(texte);
     response.status(201).json({ index: index });
 });
 
 // Endpoint to toggle the completion status of a todo
 app.patch("/api/todo", (request, response) => {
-    const index = request.body.index;
-    CocherTodo(index);
+    const id_todo = request.body.index;
+    CocherTodo(id_todo);
     response.status(200).end();
 });
 

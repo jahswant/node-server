@@ -15,7 +15,7 @@ async function getTodosServer() {
         // Looping through the todos retrieved from the server
         for (let i = 0; i < todos.length; i++) {
             // Calling addTodoClient to add each todo to the client-side list
-            addTodoClient(i, todos[i].texte, todos[i].estFait);
+            addTodoClient(todos[i].id_todo, todos[i].texte, todos[i].est_fait);
         }
     }
 }
